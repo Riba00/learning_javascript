@@ -9,28 +9,19 @@
 </head>
 <body>
 <div id="app">
-    <p>{{ counter }}</p>
-    <button @click="increment">+</button>
-    <button @click="decrement">-</button>
+    <counter></counter>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="https://unpkg.com/http-vue-loader"></script>
 
 
 <script>
-    var app = new Vue({
+    var app = new window.Vue({
         el: '#app',
-        data: {
-            counter: 0
+        components: {
+            'counter': window.httpVueLoader('./Counter.vue')
         },
-        methods: {
-            increment(){
-                this.counter++
-            },
-            decrement() {
-                this.counter--
-            }
-        }
     })
 
 </script>
